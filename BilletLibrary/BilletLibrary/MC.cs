@@ -6,24 +6,20 @@ using System.Threading.Tasks;
 
 namespace BilletLibrary
 {
-    public class Bil
+    public class MC
     {
-        public Bil()
-        {
-        }
-
         public string Nummerplade { get; set; }
         public DateTime Dato { get; set; }
 
 
         public int pris()
         {
-            return 240;
+            return 125;
         }
 
         public string køreTøj()
         {
-            return "bil";
+            return "MC";
         }
     }
 }
