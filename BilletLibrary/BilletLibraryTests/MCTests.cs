@@ -16,7 +16,7 @@ namespace BilletLibrary.Tests
         public void prisTest()
         {
             //arrange 
-            var mc = new MC("1234567", DateTime.Now);
+            var mc = new MC("1234567", DateTime.Now, false);
 
             //act
             int mcPris = mc.Pris();
@@ -29,13 +29,26 @@ namespace BilletLibrary.Tests
         public void køretøjTest()
         {
             //arrange 
-            var mc = new MC("1234567", DateTime.Now);
+            var mc = new MC("1234567", DateTime.Now, false);
 
             //act
             string køretøj = mc.køreTøj();
 
             //Assert
             Assert.AreEqual("MC", køretøj);
+        }
+
+        [TestMethod()]
+        public void MCCheckMedBrobizz()
+        {
+            //arrange 
+            var MC = new Bil("1234567", DateTime.Now, true);
+
+            //act
+            int pris = MC.PrisMedBrobizz();
+
+            //Assert
+            Assert.AreEqual(118, pris);
         }
     }
 }

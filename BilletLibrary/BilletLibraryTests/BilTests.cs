@@ -15,7 +15,7 @@ namespace BilletLibrary.Tests
         public void bilPrisTest()
         {
             //arrange 
-            var bil = new Bil("1234567", DateTime.Now);
+            var bil = new Bil("1234567", DateTime.Now, false);
 
             //act
             int bilPris = bil.Pris();
@@ -28,7 +28,7 @@ namespace BilletLibrary.Tests
         public void bilKøretøjTest()
         {
             //arrange 
-            var bil = new Bil("1234567", DateTime.Now);
+            var bil = new Bil("1234567", DateTime.Now, false);
 
             //act
             string køretøj = bil.køreTøj();
@@ -44,10 +44,20 @@ namespace BilletLibrary.Tests
         public void BilNummerpladeForLang()
         {
             //arrange 
-            var bil = new Bil("12345678", DateTime.Now);
-       
+            var bil = new Bil("12345678", DateTime.Now, false);
+        }
 
+        [TestMethod()]
+        public void bilCheckMedBrobizz()
+        {
+            //arrange 
+            var bil = new Bil("1234567", DateTime.Now, true);
 
+            //act
+            int pris1 = bil.PrisMedBrobizz();
+
+            //Assert
+            Assert.AreEqual(228, pris1);
         }
     }
 }

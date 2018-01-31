@@ -8,8 +8,9 @@ namespace BilletLibrary
 {
     public class Bil : KøretøjBaseClass    //vi arver fra vores baseclass
     {
-        public Bil(string nummerplade, DateTime date) : base(nummerplade, date)
+        public Bil(string nummerplade, DateTime date, bool brobizz) : base(nummerplade, date, brobizz)
         {
+            
         }
 
         public override string køreTøj()   //Metode vi skal override, da den er abstract i baseclasse
@@ -17,10 +18,13 @@ namespace BilletLibrary
             return "bil";
         }
 
-        public override int Pris()     //de samme gør sig gælende som ovenstående metode
+        public override int Pris()
         {
             return 240;
         }
+
+
+
 
 
         //public Bil()
