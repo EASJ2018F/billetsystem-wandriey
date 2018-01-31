@@ -12,10 +12,10 @@ namespace BilletLibrary.Tests
     public class BilTests
     {
         [TestMethod()]
-        public void prisTest()
+        public void bilPrisTest()
         {
             //arrange 
-            var bil = new Bil();
+            var bil = new Bil("1234567", DateTime.Now);
 
             //act
             int bilPris = bil.Pris();
@@ -25,16 +25,29 @@ namespace BilletLibrary.Tests
         }
 
         [TestMethod()]
-        public void køretøjTest()
+        public void bilKøretøjTest()
         {
             //arrange 
-            var bil = new Bil();
+            var bil = new Bil("1234567", DateTime.Now);
 
             //act
             string køretøj = bil.køreTøj();
 
             //Assert
             Assert.AreEqual("bil", køretøj);
+        }
+
+
+        [TestMethod()]
+        [ExpectedException(typeof(ArgumentException),     //mangler en forklaring. 
+            "nummerpladens længde er store end 8")]
+        public void BilNummerpladeForLang()
+        {
+            //arrange 
+            var bil = new Bil("12345678", DateTime.Now);
+       
+
+
         }
     }
 }

@@ -8,6 +8,10 @@ namespace BilletLibrary
 {
     public class Bil : KøretøjBaseClass    //vi arver fra vores baseclass
     {
+        public Bil(string nummerplade, DateTime date) : base(nummerplade, date)
+        {
+        }
+
         public override string køreTøj()   //Metode vi skal override, da den er abstract i baseclasse
         {
             return "bil";

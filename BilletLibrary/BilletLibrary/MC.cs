@@ -8,6 +8,10 @@ namespace BilletLibrary
 {
     public class MC : KøretøjBaseClass     
     {
+        public MC(string nummerplade, DateTime date) : base(nummerplade, date)
+        {
+        }
+
         public override string køreTøj()
         {
             return "MC";
