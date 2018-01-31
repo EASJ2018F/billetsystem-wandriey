@@ -19,7 +19,7 @@ namespace BilletLibrary.Tests
             var mc = new MC();
 
             //act
-            int mcPris = mc.pris();
+            int mcPris = mc.Pris();
 
             //Assert
             Assert.AreEqual(125, mcPris);

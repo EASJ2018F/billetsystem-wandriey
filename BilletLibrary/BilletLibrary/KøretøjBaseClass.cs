@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 
 namespace BilletLibrary
 {
-    class KøretøjBaseClass
+    public abstract class KøretøjBaseClass
     {
+        public string Nummerplade { get; set; }
+        public DateTime Dato { get; set; } 
+
+
+        public abstract int Pris();
+
+        public abstract string køreTøj();
     }
 }

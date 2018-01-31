@@ -18,7 +18,7 @@ namespace BilletLibrary.Tests
             var bil = new Bil();
 
             //act
-            int bilPris = bil.pris();
+            int bilPris = bil.Pris();
 
             //Assert
             Assert.AreEqual(240, bilPris);

@@ -6,20 +6,31 @@ using System.Threading.Tasks;
 
 namespace BilletLibrary
 {
-    public class MC
+    public class MC : KøretøjBaseClass     
     {
-        public string Nummerplade { get; set; }
-        public DateTime Dato { get; set; }
+        public override string køreTøj()
+        {
+            return "MC";
+        }
 
-
-        public int pris()
+        public override int Pris()
         {
             return 125;
         }
 
-        public string køreTøj()
-        {
-            return "MC";
-        }
+
+        //public string Nummerplade { get; set; }
+        //public DateTime Dato { get; set; }
+
+
+        //public int pris()
+        //{
+        //    return 125;
+        //}
+
+        //public string køreTøj()
+        //{
+        //    return "MC";
+        //}
     }
 }
