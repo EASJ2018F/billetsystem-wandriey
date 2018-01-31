@@ -22,20 +22,20 @@ namespace BilletLibrary.Tests
             int mcPris = mc.pris();
 
             //Assert
-            Assert.AreEqual(25, mcPris);
+            Assert.AreEqual(125, mcPris);
         }
 
         [TestMethod()]
         public void køretøjTest()
         {
             //arrange 
-            var mc = new Bil();
+            var mc = new MC();
 
             //act
             string køretøj = mc.køreTøj();
 
             //Assert
-            Assert.AreEqual("bil", køretøj);
+            Assert.AreEqual("MC", køretøj);
         }
     }
 }
