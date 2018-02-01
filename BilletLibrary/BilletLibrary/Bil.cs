@@ -8,7 +8,7 @@ namespace BilletLibrary
 {
     public class Bil : KøretøjBaseClass    //vi arver fra vores baseclass
     {
-        public Bil(string nummerplade, DateTime date, bool brobizz) : base(nummerplade, date, brobizz)
+        public Bil(string nummerplade, DateTime date, bool brobizz, int pris) : base(nummerplade, date, brobizz, pris)
         {
             
         }
@@ -18,10 +18,7 @@ namespace BilletLibrary
             return "bil";
         }
 
-        public override int Pris()
-        {
-            return 240;
-        }
+     
 
 
 

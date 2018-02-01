@@ -8,7 +8,7 @@ namespace BilletLibrary
 {
     public class MC : KøretøjBaseClass     
     {
-        public MC(string nummerplade, DateTime date, bool brobizz) : base(nummerplade, date, brobizz)
+        public MC(string nummerplade, DateTime date, bool brobizz, int pris) : base(nummerplade, date, brobizz, pris)
         {
         }
 
@@ -16,10 +16,7 @@ namespace BilletLibrary
         {
             return "MC";
         }
-        public override int Pris()
-        {
-            return 125;
-        }
+     
 
 
 
