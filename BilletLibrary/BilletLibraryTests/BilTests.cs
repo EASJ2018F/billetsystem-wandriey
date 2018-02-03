@@ -18,7 +18,7 @@ namespace BilletLibrary.Tests
             var bil = new Bil("1234567", DateTime.Now, false, 240);
 
             //act
-            int bilPris = bil.Pris();
+            int bilPris = bil.PrisForBillet();
 
             //Assert
             Assert.AreEqual(240, bilPris);
@@ -55,9 +55,26 @@ namespace BilletLibrary.Tests
 
             //act
             int pris1 = bil.PrisMedBrobizz();
+            //bil.Dato.DayOfWeek = DayOfWeek.Friday;
 
             //Assert
             Assert.AreEqual(228, pris1);
         }
+
+        [TestMethod()]
+        public void bilPrisMedBrobizzOgWeekendtilbud()
+        {
+            //arrange 
+            var bil = new Bil("1234567", DateTime.Now, true, 240);
+            bil.DaysOfWeek = DayOfWeek.Saturday;
+
+            //act
+            int pris1 = bil.PrisForBillet();
+            //bil.Dato.DayOfWeek = DayOfWeek.Friday;
+
+            //Assert
+            Assert.AreEqual(183, pris1);
+        }
+
     }
 }

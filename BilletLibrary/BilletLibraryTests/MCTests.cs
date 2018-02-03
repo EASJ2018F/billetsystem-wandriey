@@ -19,7 +19,7 @@ namespace BilletLibrary.Tests
             var mc = new MC("1234567", DateTime.Now, false, 125);
 
             //act
-            int mcPris = mc.Pris();
+            int mcPris = mc.PrisForBillet();
 
             //Assert
             Assert.AreEqual(125, mcPris);
@@ -42,13 +42,13 @@ namespace BilletLibrary.Tests
         public void MCCheckMedBrobizz()
         {
             //arrange 
-            var MC = new Bil("1234567", DateTime.Now, true, 125);
+            var MC = new MC("1234567", DateTime.Now, true, 125);
 
             //act
             int pris = MC.PrisMedBrobizz();
 
             //Assert
-            Assert.AreEqual(118, pris);
+            Assert.AreEqual(119, pris);
         }
     }
 }

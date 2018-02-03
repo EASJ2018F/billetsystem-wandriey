@@ -10,21 +10,25 @@ namespace BilletLibrary
     {
         private string _nummerplade;
         private DateTime _datetime;
+        private DayOfWeek _daysOfWeek;
         private bool _brobizz;
-        private int _pris;
+        private int _standartPris;
 
         public string Nummerplade { get { return _nummerplade; } set { _nummerplade = value; } }
         public DateTime Dato { get { return _datetime; } set { _datetime = value; } }
+        public DayOfWeek DaysOfWeek { get { return _daysOfWeek; } set { _daysOfWeek = value; } }
         public bool BroBizz { get { return _brobizz; } set { _brobizz = value; } }
-       
+        public int StandartPris { get { return _standartPris; } set { _standartPris = value; } }   //retunere den oprindelige pris (bil = 240, MC = 125)
 
 
-        public KøretøjBaseClass(string nummerplade, DateTime date, bool brobizz, int pris)
+
+        public KøretøjBaseClass(string nummerplade, DateTime date, bool brobizz, int standartPris)
         {
+            _datetime = DateTime.Now;
+            _daysOfWeek = DateTime.Now.DayOfWeek;
             _datetime = date;
             _brobizz = brobizz;
-            _pris = pris;
-
+            _standartPris = standartPris;
 
             if (nummerplade.Length > 7)
             { throw new ArgumentException("nummerpladens længde er store end 8");}        //Vi ønsker ikke der kan oprettes bil med en nummerplade
@@ -32,19 +36,20 @@ namespace BilletLibrary
                                                                                           //hvis man prøver, vil der blive smidt en exception. 
         }
 
-        public int PrisMedBrobizz()
+        public int PrisMedBrobizz()                                    //
         {
-            if (BroBizz == false)
-            { return Pris(); }
+            if (!_brobizz)
+            { return StandartPris; }
 
-            return (_pris * 5) / 100;
+            return (StandartPris - (StandartPris * 5) / 100);
          
         }
-        public int Pris()
-        {
-            return _pris;
-        }
+
+        public abstract int PrisForBillet();
+
         public abstract string køreTøj();
+
+
     }
 }
 
