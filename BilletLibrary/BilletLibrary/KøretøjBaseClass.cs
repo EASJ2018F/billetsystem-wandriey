@@ -9,10 +9,13 @@ namespace BilletLibrary
     public abstract class KøretøjBaseClass
     {
         private string _nummerplade;
+        private int _standartPris;
         private DateTime _datetime;
         private DayOfWeek _daysOfWeek;
         private bool _brobizz;
-        private int _standartPris;
+        private bool _øresundbro;
+
+
 
         public string Nummerplade { get { return _nummerplade; } set { _nummerplade = value; } }
         public DateTime Dato { get { return _datetime; } set { _datetime = value; } }
@@ -22,13 +25,15 @@ namespace BilletLibrary
 
 
 
-        public KøretøjBaseClass(string nummerplade, DateTime date, bool brobizz, int standartPris)
+        public KøretøjBaseClass(string nummerplade, DateTime date, bool brobizz, int standartPris, bool øresundbro)
         {
             _datetime = DateTime.Now;
             _daysOfWeek = DateTime.Now.DayOfWeek;
             _datetime = date;
-            _brobizz = brobizz;
             _standartPris = standartPris;
+            _brobizz = brobizz;
+            _øresundbro = øresundbro;
+            
 
             if (nummerplade.Length > 7)
             { throw new ArgumentException("nummerpladens længde er store end 8");}        //Vi ønsker ikke der kan oprettes bil med en nummerplade
@@ -38,11 +43,20 @@ namespace BilletLibrary
 
         public int PrisMedBrobizz()                                    //
         {
-            if (!_brobizz)
+            if (!BroBizz)
             { return StandartPris; }
 
             return (StandartPris - (StandartPris * 5) / 100);
          
+        }
+        private int prisOverØresundsbro()
+        {
+            if (køreTøj() == "bil")
+            { return 161; }
+            if (køreTøj() == "MC")
+            { return 73; }
+
+            return _standartPris;
         }
 
         public abstract int PrisForBillet();
