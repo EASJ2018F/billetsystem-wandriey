@@ -19,7 +19,7 @@ namespace BilletLibrary.Tests
             var mc = new MC("1234567", DateTime.Now, false, 125);
 
             //act
-            int mcPris = mc.PrisForBillet();
+            int mcPris = mc.PrisForBilletStorebæltOgLille();
 
             //Assert
             Assert.AreEqual(125, mcPris);
@@ -49,6 +49,32 @@ namespace BilletLibrary.Tests
 
             //Assert
             Assert.AreEqual(119, pris);
+        }
+
+        [TestMethod()]
+        public void MCPrisOverstorebæltUdenBrobizz()
+        {
+            //arrange 
+            var MC = new MC("1234567", DateTime.Now, false, 125);
+
+            //act
+            int pris = MC.prisOverØresundsbro();
+            //bil.Dato.DayOfWeek = DayOfWeek.Friday;
+
+            //Assert
+            Assert.AreEqual(210, pris);
+        }
+        public void MCPrisOverstorebæltMedBrobizz()
+        {
+            //arrange 
+            var MC = new MC("1234567", DateTime.Now, true, 125);
+
+            //act
+            int pris = MC.prisOverØresundsbro();
+            //bil.Dato.DayOfWeek = DayOfWeek.Friday;
+
+            //Assert
+            Assert.AreEqual(73, pris);
         }
     }
 }

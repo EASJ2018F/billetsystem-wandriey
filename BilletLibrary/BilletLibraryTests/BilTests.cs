@@ -18,7 +18,7 @@ namespace BilletLibrary.Tests
             var bil = new Bil("1234567", DateTime.Now, false, 240);
 
             //act
-            int bilPris = bil.PrisForBillet();
+            int bilPris = bil.PrisForBilletStorebæltOgLille();
 
             //Assert
             Assert.AreEqual(240, bilPris);
@@ -39,7 +39,7 @@ namespace BilletLibrary.Tests
 
 
         [TestMethod()]
-        [ExpectedException(typeof(ArgumentException),     //mangler en forklaring. 
+        [ExpectedException(typeof(ArgumentException),    
             "nummerpladens længde er store end 8")]
         public void BilNummerpladeForLang()
         {
@@ -48,17 +48,17 @@ namespace BilletLibrary.Tests
         }
 
         [TestMethod()]
-        public void bilCheckMedBrobizz()
+        public void MetodeCheckBrobizz()
         {
             //arrange 
             var bil = new Bil("1234567", DateTime.Now, true, 240);
 
             //act
-            int pris1 = bil.PrisMedBrobizz();
+            int pris = bil.PrisMedBrobizz();
             //bil.Dato.DayOfWeek = DayOfWeek.Friday;
 
             //Assert
-            Assert.AreEqual(228, pris1);
+            Assert.AreEqual(228, pris);
         }
 
         [TestMethod()]
@@ -69,13 +69,53 @@ namespace BilletLibrary.Tests
             bil.DaysOfWeek = DayOfWeek.Saturday;
 
             //act
-            int pris1 = bil.PrisForBillet();
+            int pris = bil.PrisForBilletStorebæltOgLille();
+
+            //Assert
+            Assert.AreEqual(183, pris);
+        }
+
+
+        [TestMethod()]
+        public void bilPrisMedBrobizz()
+        {
+            //arrange 
+            var bil = new Bil("1234567", DateTime.Now, true, 240);
+            bil.DaysOfWeek = DayOfWeek.Monday;
+
+            //act
+            int pris = bil.PrisForBilletStorebæltOgLille();
+
+            //Assert
+            Assert.AreEqual(228, pris);
+        }
+
+        [TestMethod()]
+        public void bilPrisOverstorebæltUdenBrobizz()
+        {
+            //arrange 
+            var bil = new Bil("1234567", DateTime.Now, false, 240);
+
+            //act
+            int pris = bil.prisOverØresundsbro();
             //bil.Dato.DayOfWeek = DayOfWeek.Friday;
 
             //Assert
-            Assert.AreEqual(183, pris1);
+            Assert.AreEqual(410, pris);
         }
+        [TestMethod()]
+        public void bilPrisOverstorebæltMedBrobizz()
+        {
+            //arrange 
+            var bil = new Bil("1234567", DateTime.Now, true, 240);
 
+            //act
+            int pris = bil.prisOverØresundsbro();
+            //bil.Dato.DayOfWeek = DayOfWeek.Friday;
+
+            //Assert
+            Assert.AreEqual(161, pris);
+        }
 
 
     }

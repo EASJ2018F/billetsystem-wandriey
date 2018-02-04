@@ -17,7 +17,7 @@ namespace BilletLibrary
             return "MC";
         }
 
-        public override int PrisForBillet()
+        public override int PrisForBilletStorebæltOgLille()
         {
 
             return PrisMedBrobizz();

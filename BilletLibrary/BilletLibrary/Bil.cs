@@ -18,7 +18,7 @@ namespace BilletLibrary
             return "bil";
         }
 
-        public override int PrisForBillet()       //tjekker weekend og brobizz
+        public override int PrisForBilletStorebæltOgLille()       //tjekker for weekendrabat og om der er brobizz, hvis intet er sandt, returnere den standard prisen. 
         {
             return weekendRabat();
         }
@@ -30,10 +30,11 @@ namespace BilletLibrary
                 int rabat20procent = (StandartPris - (StandartPris * 20) / 100);
                 return (rabat20procent - (rabat20procent * 5) / 100);
             }
-            if(BroBizz == true)
+
+            if (BroBizz == true)
             {
-                PrisMedBrobizz();         //Vi har allerede lavet en metode der kan finde ud af at trække 5% fra, som ligger i 
-                                          //så den bruger vi bare (da bil arver fra køretøj).
+                return PrisMedBrobizz();         //Vi har allerede lavet en metode der kan finde ud af at trække 5% fra, som ligger i 
+                                                 //så den bruger vi bare (da bil arver fra køretøj).
             }
             return StandartPris;        //hvis du det ikke er weekend og du heller ikke har brobizz, betaler man den fuld pris (240) 
         }
