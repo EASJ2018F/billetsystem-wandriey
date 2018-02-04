@@ -19,7 +19,8 @@ namespace BilletLibrary
 
         public override int PrisForBillet()
         {
-            return StandartPris;
+
+            return PrisMedBrobizz();
         }
 
 
