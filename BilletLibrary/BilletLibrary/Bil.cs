@@ -40,12 +40,13 @@ namespace BilletLibrary
         }
 
 
+        //Test ændring
 
 
             //public Bil()
             //{
             //}
-
+            
             //public string Nummerplade { get; set; }
             //public DateTime Dato { get; set; }
 
